@@ -22,8 +22,6 @@ const Counter = () => {
     dispatch({ type: 'TOGGLE_COUNTER' });
   };
 
-  console.log(showCounter);
-
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
