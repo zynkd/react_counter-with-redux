@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import classes from './Auth.module.css';
-import { authActions } from '../store';
+import { authSliceActions } from '../store/auth-slice';
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -8,7 +8,7 @@ const Auth = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(authActions.login());
+    dispatch(authSliceActions.login());
   };
 
   return (
