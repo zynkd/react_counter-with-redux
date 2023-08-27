@@ -26,8 +26,29 @@ const counterSlice = createSlice({
   },
 });
 
+const initialAuthState = {
+  isAuthenticated: true,
+};
+
+const authSlice = createSlice({
+  name: 'auth',
+  initialState: initialAuthState,
+  reducers: {
+    login(state) {
+      state.isAuthenticated = true;
+    },
+    logout(state) {
+      state.isAuthenticated = false;
+    },
+  },
+});
+
+// The root reducer can take 1 arg, but also an object (a map) of reducers
 const store = configureStore({
-  reducer: counterSlice.reducer,
+  reducer: {
+    counter: counterSlice.reducer,
+    auth: authSlice.reducer,
+  },
 });
 
 // const counterReducer = (state = initialState, action) => {
@@ -63,5 +84,6 @@ const store = configureStore({
 // `createSlice` automatically creates unique action identifier for each reducer
 // via `actions` property (object of unique identifiers)
 export const counterActions = counterSlice.actions;
+export const authActions = authSlice.actions;
 
 export default store;
